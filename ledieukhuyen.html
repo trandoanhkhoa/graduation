@@ -4,11 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Graduation Invitation</title>
+  <link rel="icon" type="image/x-icon" href="./graduation_icon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Thân mời cả nhà yêu tới buổi tốt nghiệp của khoa 🎓">
+  <meta name="author" content="Anh Khoa">
+  <!-- <meta name="og:site_name" content="Anh Khoa Dev Portfolio, khoatda, NIIE, Khoa Portfolio, khoatda1203, clbtinhoc, HCMUE, CLB Tin học, Anh Khoa, NIIE, MindX"> -->
+  <meta name="og:url" content="https://github.com/khoacv2024"> 
+  <meta name="og:image" content="https://trandoanhkhoa.github.io/graduation/main.png">
+  <meta name="og:image:secure" content="https://trandoanhkhoa.github.io/graduation/main.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="420">
+  <meta property="og:image:height" content="480">
+  <meta name="og:title" content="Anh Khoa Graduation 🎓">
+  <meta name="og:description" content="Thân mời cả nhà yêu tới buổi tốt nghiệp của khoa 🎓">
   <style>
     body {
       margin: 0;
@@ -40,7 +53,7 @@
       position: absolute;
       width: 100px;
       height: 100px;
-      background-image: url('/bow.png'); /* ảnh trang trí góc */
+      background-image: url('https://trandoanhkhoa.github.io/graduation/bow.png'); /* ảnh trang trí góc */
       background-size: contain;
       background-repeat: no-repeat;
       z-index: 0;
@@ -152,9 +165,13 @@
 </head>
 <body>
   <!-- Background Music -->
-  <audio autoplay loop>
+  <!-- <audio autoplay loop>
     <source src="https://trandoanhkhoa.github.io/graduation/graduation-music.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
+  </audio> -->
+  <audio id="bgMusic" loop>
+  <source src="https://trandoanhkhoa.github.io/graduation/graduation-music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
   </audio>
 
   <div class="confetti">
@@ -188,5 +205,25 @@
 </body>
 </html>
 
+<script>
+  window.addEventListener('load', function () {
+    const music = document.getElementById('bgMusic');
 
+    // Trình duyệt thường yêu cầu người dùng tương tác trước khi cho phép phát âm thanh
+    // Dưới đây là cách thử phát nhạc, nếu bị chặn thì sẽ đợi người dùng click
+    const playMusic = () => {
+      const promise = music.play();
+      if (promise !== undefined) {
+        promise.catch(() => {
+          // Nếu không phát được (bị chặn autoplay), chờ tương tác
+          document.body.addEventListener('click', () => {
+            music.play();
+          }, { once: true });
+        });
+      }
+    };
+
+    playMusic();
+  });
+</script>
 
