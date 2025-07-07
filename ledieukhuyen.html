@@ -6,14 +6,12 @@
   <title>Graduation Invitation</title>
   <link rel="icon" type="image/x-icon" href="./graduation_icon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
   <meta name="description" content="Thân mời cả nhà yêu tới buổi tốt nghiệp của khoa 🎓">
   <meta name="author" content="Anh Khoa">
-  <!-- <meta name="og:site_name" content="Anh Khoa Dev Portfolio, khoatda, NIIE, Khoa Portfolio, khoatda1203, clbtinhoc, HCMUE, CLB Tin học, Anh Khoa, NIIE, MindX"> -->
   <meta name="og:url" content="https://github.com/khoacv2024"> 
   <meta name="og:image" content="https://trandoanhkhoa.github.io/graduation/main.png">
   <meta name="og:image:secure" content="https://trandoanhkhoa.github.io/graduation/main.png">
@@ -22,6 +20,7 @@
   <meta property="og:image:height" content="480">
   <meta name="og:title" content="Anh Khoa Graduation 🎓">
   <meta name="og:description" content="Thân mời cả nhà yêu tới buổi tốt nghiệp của khoa 🎓">
+
   <style>
     body {
       margin: 0;
@@ -47,29 +46,20 @@
       position: relative;
       z-index: 1;
     }
-    .invitation::before
-     {
+
+    .invitation::before {
       content: "";
       position: absolute;
       width: 100px;
       height: 100px;
-      background-image: url('https://trandoanhkhoa.github.io/graduation/bow.png'); /* ảnh trang trí góc */
+      background-image: url('https://trandoanhkhoa.github.io/graduation/bow.png');
       background-size: contain;
       background-repeat: no-repeat;
       z-index: 0;
-       transform: rotate(35deg);
-    }
-
-    .invitation::before {
+      transform: rotate(35deg);
       right: 0px;
       top: -4px;
     }
-
-
-    /* .invitation::after {
-      bottom: 0;
-      right: 0;
-    } */
 
     @keyframes fadeInUp {
       from {
@@ -83,7 +73,7 @@
     }
 
     .invitation h1 {
-      font-family:"Pacifico", cursive;
+      font-family: "Pacifico", cursive;
       font-size: 2.5em;
       color: #4a2c2a;
       margin-bottom: 0.2em;
@@ -132,7 +122,7 @@
         0 0 15px #f0f,
         0 0 20px #0ff;
     }
-    
+
     @keyframes fall {
       0% {
         transform: translateY(-10%) rotate(0deg);
@@ -161,21 +151,45 @@
         font-size: 1em;
       }
     }
+
+    /* Popup chào mừng */
+    #welcomePopup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom right, #fff0f5, #fce4ec);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      z-index: 9999;
+    }
+
+    #enterBtn {
+      font-size: 1.2em;
+      padding: 12px 24px;
+      background-color: #b14d3a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
-  <!-- Background Music -->
-  <!-- <audio autoplay loop>
+
+  <!-- Popup chào mừng -->
+  <div id="welcomePopup">
+    <h2 style="font-family: 'Pacifico', cursive; color: #b14d3a; font-size: 2em; margin-bottom: 20px;">Chào mừng bạn đến với buổi lễ tốt nghiệp của Khoa 🎓</h2>
+    <button id="enterBtn">🎶 Thiệp mời</button>
+  </div>
+
+  <!-- Nhạc nền -->
+  <audio id="bgMusic" loop>
     <source src="https://trandoanhkhoa.github.io/graduation/graduation-music.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-  </audio> -->
-  <audio id="bgMusic" loop>
-  <source src="https://trandoanhkhoa.github.io/graduation/graduation-music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
   </audio>
 
   <div class="confetti">
-    <!-- 50 colorful falling stars -->
     <script>
       for (let i = 0; i < 50; i++) {
         const span = document.createElement('span');
@@ -196,34 +210,25 @@
     <h1>🎓 Lễ tốt nghiệp</h1>
     <p>Thân mời bạn <span style="font-size: 1.2em; color: #0077cc;"><strong>Lê Diệu Khuyên</strong></span> đến dự buổi tốt nghiệp 😊</p>
     <p style="font-size: 20px;"><strong>Của</strong></p>
-    <p style="font-size: 1.4em; color: #b14d3a;"><strong>🧑‍🎓 Anh Khoa</strong></p>
+    <p style="font-size: 1.4em; color: #b14d3a;"><strong>🧑‍🎓Trần Đỗ Anh Khoa</strong></p>
     <div>
       <img width="70%" src="main.png" alt="">
     </div>
     <p class="date"> Ngày 📅: 14/07/2025 <br> Thời gian 🕒: 2:00 PM <br> Địa điểm📍: 280 Đ. An Dương Vương, Phường 7, Quận 5, TP.Hồ Chí Minh</p>
   </div>
+
+  <script>
+    document.getElementById('enterBtn').addEventListener('click', () => {
+      const music = document.getElementById('bgMusic');
+      const popup = document.getElementById('welcomePopup');
+
+      music.play();
+      popup.style.transition = 'opacity 0.8s ease';
+      popup.style.opacity = '0';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 800);
+    });
+  </script>
 </body>
 </html>
-
-<script>
-  window.addEventListener('load', function () {
-    const music = document.getElementById('bgMusic');
-
-    // Trình duyệt thường yêu cầu người dùng tương tác trước khi cho phép phát âm thanh
-    // Dưới đây là cách thử phát nhạc, nếu bị chặn thì sẽ đợi người dùng click
-    const playMusic = () => {
-      const promise = music.play();
-      if (promise !== undefined) {
-        promise.catch(() => {
-          // Nếu không phát được (bị chặn autoplay), chờ tương tác
-          document.body.addEventListener('click', () => {
-            music.play();
-          }, { once: true });
-        });
-      }
-    };
-
-    playMusic();
-  });
-</script>
-
