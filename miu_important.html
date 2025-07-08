@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Graduation Invitation</title>
+  <link rel="icon" type="image/x-icon" href="./graduation_icon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Thân mời cả nhà yêu tới buổi tốt nghiệp của khoa 🎓">
+  <meta name="author" content="Anh Khoa">
+  <meta name="og:url" content="https://github.com/khoacv2024"> 
+    <meta name="og:image" content="https://trandoanhkhoa.github.io/graduation/SPTPHCM.png">
+  <meta name="og:image:secure" content="https://trandoanhkhoa.github.io/graduation/SPTPHCM.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="420">
+  <meta property="og:image:height" content="480">
+  <meta name="og:title" content="Anh Khoa Graduation 🎓">
+  <meta name="og:description" content="Thân mời cả nhà yêu tới buổi tốt nghiệp của khoa 🎓">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+      overflow-x: hidden;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column; /* Dạng cột: các phần tử xếp từ trên xuống */
+      justify-content: center;
+      align-items: center;
+    }
+    .invitation {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+      animation: fadeInUp 1.5s ease-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    .invitation::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-image: url('https://trandoanhkhoa.github.io/graduation/bow.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 0;
+      transform: rotate(35deg);
+      right: 0px;
+      top: -4px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .invitation h1 {
+      font-family: "Pacifico", cursive;
+      font-size: 2.5em;
+      color: #4a2c2a;
+      margin-bottom: 0.2em;
+      animation: fadeIn 2s ease-in;
+      font-weight: 700;
+    }
+
+    .invitation p {
+      font-size: 1em;
+      color: #444;
+      margin: 10px 0;
+    }
+
+    .date {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-top: 20px;
+    }
+
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .confetti span {
+      position: absolute;
+      border-radius: 50%;
+      animation: fall 6s linear infinite;
+    }
+
+    .confetti span::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff0,
+        0 0 15px #f0f,
+        0 0 20px #0ff;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .invitation {
+        padding: 20px;
+      }
+
+      .invitation h1 {
+        font-size: 2em;
+      }
+
+      .invitation p {
+        font-size: 0.95em;
+      }
+
+      .date {
+        font-size: 1em;
+      }
+    }
+    .section_secret {
+  /* max-width: 960px; */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease;
+  text-align: left;
+  overflow: hidden;
+  max-width: 800px;
+}
+
+.section img {
+  float: left;
+  margin-right: 20px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.section h2 {
+  color: #b14d3a;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8em;
+  margin-top: 0;
+}
+
+.section p {
+  font-size: 1em;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Responsive cho section */
+@media (max-width: 768px) {
+  body{
+    padding: 0px;
+  }
+  
+  .section {
+    text-align: center;
+  }
+
+  .section img {
+    
+    float: none;
+    display: block;
+    margin: 0 auto 15px;
+  }
+
+  .section h2 {
+    font-size: 1.5em;
+  }
+
+  .section p {
+    font-size: 0.95em;
+  }
+}
+    /* Popup chào mừng */
+#welcomePopup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: linear-gradient(to bottom right, #fff0f5, #fce4ec);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#welcomePopup h2 {
+  font-family: 'Pacifico', cursive;
+  color: #b14d3a;
+  font-size: 2em;
+  margin-bottom: 20px;
+  max-width: 90%;
+  line-height: 1.4;
+}
+
+#enterBtn {
+  font-size: 1em;
+  padding: 12px 24px;
+  background-color: #b14d3a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+#enterBtn:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  #welcomePopup h2 {
+    font-size: 1.5em;
+  }
+
+  #enterBtn {
+    font-size: 0.9em;
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .invitation {
+    padding: 20px;
+    width: calc(100% - 32px);
+    margin: 10px 22px;
+  }
+
+  .invitation h1 {
+    font-size: 2em;
+  }
+
+  .invitation p,
+  .date {
+    font-size: 1em;
+  }
+
+  .section {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  /* .section img {
+    width: 100%;
+    height: auto;
+    float: none;
+    margin: 0 0 10px 0;
+  } */
+
+  .section h2 {
+    font-size: 1.4em;
+  }
+
+  .section p {
+    font-size: 0.95em;
+  }
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 21)); }
+}
+
+.slider {
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: 500px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  width: 90vw;
+}
+
+.slider .slide-track {
+  display: flex;
+  width: fit-content;
+  animation: scroll 40s linear infinite;
+}
+
+.slider .slide {
+  flex-shrink: 0;
+  width: 500px;
+  height: 500px;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Responsive cho tablet */
+@media (max-width: 768px) {
+  .slider {
+    height: 300px;
+  }
+
+  .slider .slide {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 480px) {
+  .slider {
+    height: 220px;
+  }
+
+  .slider .slide {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Popup chào mừng -->
+  <div id="welcomePopup">
+    <h2 style="font-family: 'Pacifico', cursive; color: #b14d3a; font-size: 2em; margin-bottom: 20px;">Chào mừng bạn đến với buổi lễ tốt nghiệp của Khoa 🎓</h2>
+    <p>Ê bạn 😃. Bạn là một trong những người đặc biệt mà tui gửi lá thiệp này đó. Trong này là thiệp mời và lời tâm sự của tôi đến mọi người và đặt biệt là BẠN ĐÓ 😘 (ĐỌC CHO HẾT NHEN 😉)</p>
+    <button id="enterBtn">🎶 Thiệp mời</button>
+  </div>
+
+  <!-- Nhạc nền -->
+  <audio id="bgMusic" loop>
+    <source src="https://trandoanhkhoa.github.io/graduation/graduation-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="confetti">
+    <script>
+      for (let i = 0; i < 50; i++) {
+        const span = document.createElement('span');
+        const colors = ['#FFD700', '#FF69B4', '#87CEFA', '#98FB98', '#FFA07A', '#FFFACD'];
+        const size = Math.random() * 6 + 4;
+        span.style.left = Math.random() * 100 + '%';
+        span.style.top = Math.random() * -100 + 'px';
+        span.style.width = size + 'px';
+        span.style.height = size + 'px';
+        span.style.background = colors[Math.floor(Math.random() * colors.length)];
+        span.style.animationDelay = Math.random() * 6 + 's';
+        document.querySelector('.confetti').appendChild(span);
+      }
+    </script>
+  </div>
+  <div class="container">
+    <div class="invitation">
+    <h1>🎓 Lễ tốt nghiệp</h1>
+    <p>Thân mời bạn <span style="font-size: 1.2em; color: #0077cc;"><strong>Idol Mai Lê Miu</strong></span> đến dự buổi tốt nghiệp 😊</p>
+    <span  style="font-size: 20px;"><strong>Của</strong></span>
+    <span style="font-size: 1.4em; color: #b14d3a;"><strong>🧑‍🎓Anh Khoa</strong></span>
+    <p>Sự tham gia của Miu là niềm vinh hạnh của khoa 😘 </p>
+    <div>
+      <img width="70%" src="main.png" alt="">
+    </div>
+    <p class="date"> Ngày 📅: 14/07/2025 <br> Thời gian 🕒: 2:00 PM <br> Địa điểm📍: 280 Đ. An Dương Vương, Phường 7, Quận 5, TP.Hồ Chí Minh</p>
+  </div>
+  <div class="section_secret">
+    <div class="section">
+      <img src="./images/khoane.jpg" alt="Khoa smiling">
+      <h2>Lời mở đầu</h2>
+      <p>Ê lại là Khoa đây ! 😊. Chào cả nhà của khoa. 
+        Thân gửi lời chào trân trọng đến các bạn và người khoa yêu mến. 
+        Trong ngày lễ quan trọng này khoa muốn gửi lời tham dự đến các bạn khoa yêu quý và luôn ủng hộ khoa trong suốt chặng đường học tập và trải nghiệm tại TP. Hồ Chí Minh đặt biệt là ngôi trường Sư Phạm của khoa.</p>
+    </div>
+    
+    <div class="section">
+      <img src="./images/bame.jpg" alt="Ba mẹ">
+      <h2>Ba Mẹ</h2>
+      <p>Thời gian 4 năm đại học tưởng như dài đằng đẵng nhưng thực sự khi bước vào thời sinh viên mình mới chợt nhận ra thời gian đã lướt qua nhanh như một cơn gió. 4 năm đại học đã cho mình bao nhiêu thanh xuân và kỉ niệm. Ba mẹ luôn là hành trang vững trãi cho mình trong suốt 4 năm học, đã động viên và khuyến mình trong suốt hành trình trưởng thành, gửi đến ba mẹ một lời cảm ơn sâu sắc và lòng biết ơn đến ba mẹ 😘 chúc ba mẹ sức khỏe và cho con nhiều tiền để để du học 😉.</p>
+    </div>
+
+    <div class="section">
+      <img src="./images/thaykhiet.jpg" alt="Anh trai">
+      <h2>Người Thầy - Người Anh</h2>
+      <p>Một trong những người luôn đồng hành với mình, mà khoa luôn kính trọng, anh vừa là một người anh, vừa là một người thầy của khoa. khoa cũng còn có nhớ lúc mình xuống nhà a chơi cái là 😃 ảnh nói ảnh làm giáo viên cái lúc mà mình lớp 11 cơ ! xong rồi là tới năm 12 cái, lúc đầu khoa không định chọn CNTT đâu, chọn mấy cái ngành gì mà tên nó ngầu ngầu ó như “Quản trị kinh doanh”, “Kinh doanh quốc tế đồ đó”. Xong cái là đợt thi xong thế lực nào đó đã khiến mình chọn CNTT trong tổng số 6/8 nguyện vọng. Và dĩ nhiên là anh mình :>> đã đề xuất cho mình nguyện vọng CNTT tại trường đại học Sư phạm và thế là 2 nguyện vòng đầu mình rớt, dô NV3 Đại học Sư phạm 😑, thui cứ cho là cũng cũng kkk. Trong quá trình học mình được a của mình support rất là nhiều, từ cách làm sao để xếp lớp học phần, làm sao để chỉnh chu hơn trong việc học tập và công việc, anh cũng là một người thầy giáo của mình, đã dạy cho mình môn Lập trình OOP và Windows =>>>, trộm vía là 1 môn 8.0 và 10.0 kkk, cảm ơn a :>>> kkkk. Chúc anh sức khỏe và thành công trên con đường sự nghiệp để sớm cưới vợ 😘.</p>
+    </div>
+
+    <div class="section">
+      <img src="./images/thuyduong.jpg" alt="Nhóm tự trị">
+      <h2>Idol Thùy Dương (Dưỡng Nhan)</h2>
+      <p>Người khoa luôn ấn tượng đầu tiên trong nhóm :>>> chắc chắn không nào khác ngoài bạn Phan Lương Thùy Dương. Để khoa kể quý dị nghe về bạn Phan Lương Thùy Dương kkkk. Hẳn năm học đầu tiên mình thực sự ấn tượng với phong thái tự tin và :>> luôn luôn giơ tay phát biểu trong môn giải tích 1, một môn học được coi là địa ngục trần gian tại HCMUE, mỗi buổi học bạn đều giơ tay làm bài tập, khiến mình chú ý không chỉ nể bạn về học lực, mà nhan sắc cũng chi là good good 🤡. Nắm bắt được cơ hội mình đã ngỏ lời mời bạn về nhóm :>> (hok nhớ có phải khoa hok nhưng mà là dị dị đó 😃). Bạn cũng là người đứng đầu lớp với số điểm cực kì cao :>>>>>, và mình thực sự ấn tượng bạn với độ chăm chỉ và chịu chơi, chịu học của bạn, và :>>> cũng có nhiều điều secret muốn nói với bạn nhưng mình nghĩ vẫn chưa phải lúc để show các secret (còn nhiều secret lắm cứ từ từ 😉). Hy vọng khoa sẽ được đồng hành với nữ Idol Thùy Dương trong chặn đường tiếp theo😊. Khoa chúc dương có sức khỏe nà, nhan sắc thăng hạn và đạt được nhiều thành tích trong công việc và học tập trong chặng đường tiếp theo nhen😘.</p>
+    </div>
+
+    <div class="section">
+      <img src="./images/hai.jpg" alt="Chí Hải">
+      <h2>Idol Nắng Mưa - Trần Lê Chí Hải</h2>
+      <p>Tiếp theo phải nhắc đến Idol nắng mưa “Trần Lê Chí Hải”, một trong những ông thần sáng hô nắng gọi mưa, thích là nhích, không thích là drama 🤡.Chí Hải là một người khoa luôn ngưỡng mộ về độ chăm chỉ, chịu chơi tới bến của ảnh, theo khoa thì slogan của Hải là “Bộ trưởng bộ ngoại giao BIA 🍺”, từ khoa Tâm lý học đến khoa toán, khoa CNTT, ban lãnh đạo của khoa đến đoàn, hội, Chí hải là một trong những người có quan hệ rộng nhất trong lớp, 1 điều làm khoa rất tượng đến thời điểm hiện tại khoa rất tượng với khả năng của bạn, trong đó bạn cũng có rất nhiều giải thưởng SV5T, NCKH, và đạt loại giỏi và xuất sắc trong các học kỳ, học bổng là phải gọi là “DỮ LUÔN Ó” với thành tích top 2 của lớp, khoa có nhiều kỷ niệm với bạn trong suốt quá trình học tập, đặc biệt trong năm 2 và 3, có nhiều điều khoa làm Chí Hải buồn trong suốt giai đoạn năm 2 và 3. Khoa chúc Hải luôn có sức khỏe và đạt được nhiều thành tích trong quá trình học tập và công việc tương lai.</p>
+    </div>
+
+    <div class="section">
+      <img src="./images/miu.jpg" alt="Mai Lê Hương">
+      <h2>Idol Miu - Mai Lê Hương</h2>
+      <p>Ai là người khoa nhắc đến tiếp theo đây ta :>>> “Mai Lê Hương” biệt danh (Miu). Ê nói thiệt ó chứ tui mà gửi cái này mà mn đọc là mọi người phải đặc biệt lắm mới được đọc ó nhen. Để tui tiết lộ cho mn nghe nhen 😃. Lần đầu tiên tui gặp bạn này là online trên FB và GG meet thì phải ó được biết bạn qua FB nên lúc đó tò mò lắm, mà cái năm của tui nó dịch COVID-19 học hết năm 1, năm 2 mới bắt đầu lên SG, Miu là một con người con gái dịu dàng, thùy mị, được cái ăn chậm :>>>, tui còn nhớ tui vs bạn còn hát cái bài “LÂU ĐÀI TÌNH ÁI” mà hát trên GG meet ó, rồi hát solo mấy cái bài gì mà mà sến sến ó, xong thấy cũng thích thích bạn ó 🤡, xong rủ bạn đi ăn đồ đó :>>>, ê kỉ niệm good good ó nhen, còn nhiều lắm mà hok dám kể ó :>>>>. Thui lướt sang các điều mà tui ngưỡng mộ bạn này nhen, đâu để xem có gì nè🧐. Bạn này chăm chỉ học giỏi vai ca cuc luôn ó :>>> hơn chấm tui hình như 0.01 thì phải, bạn có tham gia NCKH rồi hoạt động các thứ, à được cái đánh cầu lông hay nữa, bạn còn nợ tôi 2 ly Highland :>>>>>, chắc bữa nào phải đi thui. Tui sẽ giữ những kỷ niệm này với bạn. Khoa chúc Miu sức khỏe, xinh đẹp hơn, đạt được nhiều thành tựu và thành tích trong chặn đường học tập và công việc phía trước nhen.</p>
+    </div>
+
+    <div class="section">
+      <img src="./images/dang.jpg" alt="Lai Thị Ánh Đăng">
+      <h2>Cô Anna Lai</h2>
+      <p>Người tui muốn nhắc tên tiếp theo Cô Anna Lai “Lai Thị Ánh Đăng”. Slogan “Sao mày không rủ tao đi học dậy”. Điểm dưới đáy xã hội =>>> 😃. Trong nhóm từ năm 1 đến năm 3 chưa bao giờ thấy cái bạn này đi hoạt động xã hội gì hết, được cái năm 4 ở đâu lòi ra như chiến thần xã hội ngoi lên 🤡 gặp tui. Tui nói ó hả 1 lần mà tui gặp cổ là đi ó hả, “SINH TỐ BƠ” phải sinh tố mới chịu, rồi ó hả rủ đi coffee deadline (tới quán “SỦA” rồi “CƯỜI”). Cũng mới chơi nhiều với bạn gần đây, bạn good good. Bạn đã giới thiệu tui cái job gì mà “ALGORITHMICS” ê ông CEO ổng chua lè chua lét ò :>>>>, phải né né ra. Một công việc mà tui thấy giữ trẻ còn nhiều hơn dạy ó. Mà được cái sài Tiếng Anh good good, tui đánh giá cao, mà vừa vừa thui 🤡. Điểm tui ấn tượng ở bản hả? Đâu để xem cái ik chăm chỉ nữa vời, mới viết nhận xét giúp cổ :>>> (lạy🙏 cô Anna hy vọng cô chăm chỉ lên). Trời ơi m có cái gì để tao ngưỡng mộ nữa nào, à độ chịu chơi :>>> rủ đi cầu lông là phải đi liền, sáng trưa chiều tối rủ cái là đi, “PHẢI ĐI LIỀN” tại ghiền ó, tinh thần thể thao good good, tui đánh giá cao. Rồi tui chúc cô Anna Lai là sức khỏe, xinh đẹp hơn nà, đạt được nhiều thành tích và thành tựu trong tương lai (đặt biệt cần cải thiện độ chăm chỉ 🤡).</p>
+    </div>
+  </div>
+  </div>
+  <div class="slider">
+  <div class="slide-track">
+    <div class="slide"><img src="./images/group1.jpg" alt="Group 1" /></div>
+    <div class="slide"><img src="./images/group2.jpg" alt="Group 2" /></div>
+    <div class="slide"><img src="./images/group17.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group3.jpg" alt="Group 3" /></div>
+    <div class="slide"><img src="./images/group14.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group4.jpg" alt="Group 4" /></div>
+    <div class="slide"><img src="./images/group7.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group12.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group13.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group16.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group6.jpg" alt="Group 1" /></div>
+    <div class="slide"><img src="./images/group8.jpg" alt="Group 2" /></div>
+    <div class="slide"><img src="./images/group9.jpg" alt="Group 3" /></div>
+    <div class="slide"><img src="./images/group15.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group10.jpg" alt="Group 4" /></div>
+    <div class="slide"><img src="./images/group11.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group18.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group19.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group20.jpg" alt="Group 5" /></div>
+    <div class="slide"><img src="./images/group21.jpg" alt="Group 5" /></div>
+  </div>
+</div>
+</div>
+  <script>
+    document.getElementById('enterBtn').addEventListener('click', () => {
+      const music = document.getElementById('bgMusic');
+      const popup = document.getElementById('welcomePopup');
+
+      music.play();
+      popup.style.transition = 'opacity 0.8s ease';
+      popup.style.opacity = '0';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 800);
+    });
+  </script>
+</body>
+</html>
+
+
+  
+     
