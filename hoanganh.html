@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graduation Invitation</title>
+  <link rel="icon" type="image/x-icon" href="./graduation_icon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Thân mời cả nhà yêu tới buổi tốt nghiệp của khoa 🎓">
+  <meta name="author" content="Anh Khoa">
+  <meta name="og:url" content="https://github.com/khoacv2024"> 
+  <meta name="og:image" content="https://trandoanhkhoa.github.io/graduation/SPTPHCM.png">
+  <meta name="og:image:secure" content="https://trandoanhkhoa.github.io/graduation/SPTPHCM.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="420">
+  <meta property="og:image:height" content="480">
+  <meta name="og:title" content="Anh Khoa Graduation 🎓">
+  <meta name="og:description" content="Thân mời cả nhà yêu tới buổi tốt nghiệp của khoa 🎓">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .invitation {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+      animation: fadeInUp 1.5s ease-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    .invitation::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-image: url('https://trandoanhkhoa.github.io/graduation/bow.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 0;
+      transform: rotate(35deg);
+      right: 0px;
+      top: -4px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .invitation h1 {
+      font-family: "Pacifico", cursive;
+      font-size: 2.5em;
+      color: #4a2c2a;
+      margin-bottom: 0.2em;
+      animation: fadeIn 2s ease-in;
+      font-weight: 700;
+    }
+
+    .invitation p {
+      font-size: 1em;
+      color: #444;
+      margin: 10px 0;
+    }
+
+    .date {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-top: 20px;
+    }
+
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .confetti span {
+      position: absolute;
+      border-radius: 50%;
+      animation: fall 6s linear infinite;
+    }
+
+    .confetti span::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff0,
+        0 0 15px #f0f,
+        0 0 20px #0ff;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .invitation {
+        padding: 20px;
+      }
+
+      .invitation h1 {
+        font-size: 2em;
+      }
+
+      .invitation p {
+        font-size: 0.95em;
+      }
+
+      .date {
+        font-size: 1em;
+      }
+    }
+
+    /* Popup chào mừng */
+    #welcomePopup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom right, #fff0f5, #fce4ec);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      z-index: 9999;
+    }
+
+    #enterBtn {
+      font-size: 1.2em;
+      padding: 12px 24px;
+      background-color: #b14d3a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Popup chào mừng -->
+  <div id="welcomePopup">
+    <h2 style="font-family: 'Pacifico', cursive; color: #b14d3a; font-size: 2em; margin-bottom: 20px;">Chào mừng bạn đến với buổi lễ tốt nghiệp của Khoa 🎓</h2>
+    <button id="enterBtn">🎶 Thiệp mời</button>
+  </div>
+
+  <!-- Nhạc nền -->
+  <audio id="bgMusic" loop>
+    <source src="https://trandoanhkhoa.github.io/graduation/graduation-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="confetti">
+    <script>
+      for (let i = 0; i < 50; i++) {
+        const span = document.createElement('span');
+        const colors = ['#FFD700', '#FF69B4', '#87CEFA', '#98FB98', '#FFA07A', '#FFFACD'];
+        const size = Math.random() * 6 + 4;
+        span.style.left = Math.random() * 100 + '%';
+        span.style.top = Math.random() * -100 + 'px';
+        span.style.width = size + 'px';
+        span.style.height = size + 'px';
+        span.style.background = colors[Math.floor(Math.random() * colors.length)];
+        span.style.animationDelay = Math.random() * 6 + 's';
+        document.querySelector('.confetti').appendChild(span);
+      }
+    </script>
+  </div>
+
+  <div class="invitation">
+    <h1>🎓 Lễ tốt nghiệp</h1>
+    <p>Thân mời bạn <span style="font-size: 1.2em; color: #0077cc;"><strong>Hoàng Anh</strong></span> đến dự buổi tốt nghiệp 😊</p>
+    <span style="font-size: 20px;"><strong>Của</strong></span>
+    <span style="font-size: 1.4em; color: #b14d3a;"><strong>🧑‍🎓Anh Khoa</strong></span>
+    <div>
+      <img width="70%" src="main.png" alt="">
+    </div>
+    <p class="date"> Ngày 📅: 14/07/2025 <br> Thời gian 🕒: 2:00 PM <br> Địa điểm📍: 280 Đ. An Dương Vương, Phường 7, Quận 5, TP.Hồ Chí Minh</p>
+  </div>
+
+  <script>
+    document.getElementById('enterBtn').addEventListener('click', () => {
+      const music = document.getElementById('bgMusic');
+      const popup = document.getElementById('welcomePopup');
+
+      music.play();
+      popup.style.transition = 'opacity 0.8s ease';
+      popup.style.opacity = '0';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 800);
+    });
+  </script>
+</body>
+</html>
